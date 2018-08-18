@@ -9,9 +9,10 @@ import { addExpense } from '../../reducers/expense';
 const CategoryList = (props) => {
   return (
     <ul>
-      {props.categories.map(Category => <li key={Category.id}>{Category.name}
-        <ExpenseForm  buttonText="add expense" onComplete={props.addExpense}/> 
-        <ExpenseList expenses={props.expenses}  /></li>)}
+      {props.categories.map(Category => <li key={Category.id}>
+      {Category.name} <br /> Total Budget for Category: {Category.budget}
+        <ExpenseForm  buttonText="add expense" onComplete={props.addExpense} categoryID={Category.id}/> 
+        <ExpenseList expenses={props.expenses} id={Category.id} /></li>)}
       
     </ul>
   );

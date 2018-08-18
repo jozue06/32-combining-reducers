@@ -22,6 +22,8 @@ export default class CategoryForm extends Component {
     return (
       <form onSubmit={this.submitHandler}>
         <input name="name" value={this.state.name} onChange={this.changeHandler} type="text" placholder="category"/>
+        <input name="budget" value={this.state.buget} onChange={this.changeHandler} type="number" placholder="budget"/>
+
         <button>{this.props.buttonText}</button>
       </form>
     );

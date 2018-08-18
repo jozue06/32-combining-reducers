@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { addCategory } from '../../reducers/category';
 
-import CategoryForm from './CategoryFrom';
+import CategoryForm from './CategoryForm';
 import CategoryList from './CategoryList';
 
 const CategoryContainer = (props) => {
