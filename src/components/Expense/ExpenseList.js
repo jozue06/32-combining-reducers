@@ -13,3 +13,4 @@ ExpenseList.propTypes = {
   expenses: PropTypes.arrayOf(PropTypes.object).isRequired
 }
 export default ExpenseList;
+

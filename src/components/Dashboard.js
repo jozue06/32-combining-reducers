@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react';
-import ExpenseContainer from './Expense/ExpenseContainer';
+import S from '../style/styles'
+
 import CategoryContainer from './Category/CategoryContainer';
 
 const Dashboard = () => {
   return (
-    <Fragment>
+    <S.Wrapper>
       <CategoryContainer />
-      <ExpenseContainer />
-    </Fragment>
+    </S.Wrapper>
   );
 };
 
