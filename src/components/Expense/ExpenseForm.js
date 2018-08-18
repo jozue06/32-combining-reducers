@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export default class SavoryForm extends Component {
+export default class ExpenseForm extends Component {
 
   state = {
     name:'',
@@ -21,14 +21,14 @@ export default class SavoryForm extends Component {
   render() {
     return (
       <form onSubmit={this.submitHandler}>
-        <input name="name" value={this.state.name} onChange={this.changeHandler} type="text" placholder="sweet"/>
+        <input name="name" value={this.state.name} onChange={this.changeHandler} type="text" placeholder="Expense"/>
         <button>{this.props.buttonText}</button>
       </form>
     );
   }
 }
 
-SavoryForm.propTypes = {
+ExpenseForm.propTypes = {
   onComplete: PropTypes.func.isRequired,
   buttonText: PropTypes.string.isRequired,
 }

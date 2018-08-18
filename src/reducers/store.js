@@ -1,10 +1,10 @@
 import { createStore, combineReducers } from 'redux';
-import sweetState from './sweet';
-import savoryState from './savory';
+import expenseState from './expense';
+import categoryState from './category';
 
 const rootReducer = combineReducers({
-  sweetState,
-  savoryState,
+  expenseState,
+  categoryState,
 });
 
 export default createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());

@@ -1,24 +1,23 @@
+
 import uuid from 'uuid/v1';
 import defaultState from './defaultState';
 
-// Actions
-export const ADD = 'Sweet/ADD';
+// Action type
+export const ADD = 'Category/ADD';
 
 // Reducer
 export default function reducer(state = defaultState, action) {
 
+  console.log({action});
+  
   const { type, payload } = action;
 
   switch (type) {
     case ADD:
       payload.id = uuid(); // this ok or need fresh copy?
-
-      if(payload.name === 'twizzlers' || payload.name === 'red vines') {
-        payload.name = 'hot tamales';
-      }
       return {
         ...state,
-        sweets: [...state.sweets, payload]
+        categories: [...state.categories, payload]
       };
 
     default: return state;
@@ -26,9 +25,10 @@ export default function reducer(state = defaultState, action) {
 }
 
 // Action Creators
-export function addSweet(sweet) {
+export function addCategory(category) {
+  console.log('addCategory action', category);
   return {
     type: ADD,
-    payload: sweet
+    payload: category
   }
 }

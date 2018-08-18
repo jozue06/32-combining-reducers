@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export default class SweetForm extends Component {
+export default class CategoryForm extends Component {
 
   state = {
     name:'',
@@ -21,14 +21,14 @@ export default class SweetForm extends Component {
   render() {
     return (
       <form onSubmit={this.submitHandler}>
-        <input name="name" value={this.state.name} onChange={this.changeHandler} type="text" placholder="sweet"/>
+        <input name="name" value={this.state.name} onChange={this.changeHandler} type="text" placholder="category"/>
         <button>{this.props.buttonText}</button>
       </form>
     );
   }
 }
 
-SweetForm.propTypes = {
+CategoryForm.propTypes = {
   onComplete: PropTypes.func.isRequired,
   buttonText: PropTypes.string.isRequired,
 }

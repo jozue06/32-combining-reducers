@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
-import SweetContainer from './sweet/SweetContainer';
-import SavoryContainer from './savory/SavoryContainer';
+import ExpenseContainer from './Expense/ExpenseContainer';
+import CategoryContainer from './Category/CategoryContainer';
 
 const Dashboard = () => {
   return (
     <Fragment>
-      <SweetContainer />
-      <SavoryContainer />
+      <CategoryContainer />
+      <ExpenseContainer />
     </Fragment>
   );
 };

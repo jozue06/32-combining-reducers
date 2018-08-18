@@ -1,4 +1,4 @@
 export default {
-    sweets: [],
-    savories: [],
+  expenses: [],
+  categories: [],
   }
