@@ -31,9 +31,8 @@
     "uuid": "^3.3.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "server": "nodemon ./server/server.js",
+    "client": "npm start --prefix public",
+    "start": "concurrently \"npm run server\" \" npm run client\""
   }
 }
