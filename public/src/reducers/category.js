@@ -1,8 +1,9 @@
-
+import superagent from 'superagent';
 import uuid from 'uuid/v1';
 import defaultState from './defaultState';
 
 // Action type
+export const GET = 'Category/GET'
 export const ADD = 'Category/ADD';
 export const DELETE = 'Category/DELETE';
 
@@ -21,7 +22,6 @@ export default function reducer(state = defaultState, action) {
         categories: [...state.categories, payload]
       };
       case DELETE:
-      // console.log(state.categories)
       return {
         ...state,
         categories: state.categories.filter(category => {
@@ -29,6 +29,12 @@ export default function reducer(state = defaultState, action) {
           return category.id !== payload.id})
       };
 
+      case GET:
+      console.log('action reducer get')
+      return {
+        ...state,
+       categories: [...state.categories, payload]
+      };
     default: return state;
   }
 }
@@ -48,4 +54,16 @@ export function deleteCategory(category) {
     type: DELETE,
     payload: category
   }
+}
+
+export const getCategory = () => dispatch => {
+console.log('calling getCat')
+  superagent
+  .get('/api/notes')
+  .then(res =>
+  dispatch({
+    type: GET,
+    payload: res.data,
+  })
+)
 }

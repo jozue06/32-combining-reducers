@@ -9,7 +9,7 @@ import publicRoute from '../routes/api/publicApi.js';
 
 import errorHandler from '../middleware/error.js';
 import notFound from '../middleware/404.js';
-import notes from '../routes/api/notes.js';
+import categories from '../routes/api/category.js';
 
 
 let app = express();
@@ -21,7 +21,7 @@ app.use(express.urlencoded({extended:true})); // req.body => from a form's key v
 
 app.use(authRouter);
 app.use(publicRoute);
-app.use('/api/notes', notes);
+app.use('/api/categories', categories);
 
 app.use(notFound);
 app.use(errorHandler);

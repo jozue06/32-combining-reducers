@@ -1,11 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addCategory, deleteCategory } from '../../reducers/category';
+import { addCategory, deleteCategory} from '../../reducers/category';
 
 import CategoryForm from './CategoryForm';
 import CategoryList from './CategoryList';
 
+
+
 const CategoryContainer = (props) => {
+  
+
+
   return (
     <section>
       <h2>Category</h2>

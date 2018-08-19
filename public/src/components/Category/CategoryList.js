@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import { addExpense } from '../../reducers/expense';
 
 const CategoryList = (props) => {
+  
   return (
     <ul>
       <S.Text>{props.categories.map(Category => <li key={Category.id}>
