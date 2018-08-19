@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import S from '../../components/styles/styles.js'
+
 
 export default class ExpenseForm extends Component {
 
@@ -22,12 +24,14 @@ export default class ExpenseForm extends Component {
   }
   render() {
     return (
+      <S.Text>
       <form onSubmit={this.submitHandler}>
         <input name="name" value={this.state.name} onChange={this.changeHandler} type="text" placeholder="Expense"/>
         <input name="amount" value={this.state.amount} onChange={this.changeHandler} type="number" placeholder="Amount"/>
-
-        <button>{this.props.buttonText}</button>
+        <br />
+        <S.Button>{this.props.buttonText}</S.Button>
       </form>
+      </S.Text>
     );
   }
 }

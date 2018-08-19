@@ -8,8 +8,7 @@ const ExpenseContainer = (props) => {
   return (
     <section>
       <h2>Expenses</h2>
-    <ExpenseForm buttonText="add sweet" onComplete={props.addExpense} />
-    {/* <ExpenseList expenses={props.expenses} /> */}
+    <ExpenseForm buttonText="add Expense" onComplete={props.addExpense} />
     </section>
   );
 };
