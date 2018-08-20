@@ -25,7 +25,7 @@ export default function reducer(state = defaultState, action) {
         ...state,
         categories: state.categories.filter(category => {
           console.log('payss', payload)
-          return category.id !== payload.id})
+          return category._id !== payload._id})
       };
 
       case GET:
@@ -53,11 +53,14 @@ export const addCategory = (category) => dispatch => {
   
 }
 
-export function deleteCategory(category) {
-  return {
+export const deleteCategory =(category) => dispatch => {
+  let id = category._id
+  superagent.delete(`http://localhost:3300/api/categories/${id}`)
+  .then(dispatch({
     type: DELETE,
     payload: category
-  }
+  }));
+ 
 }
 
 export const getCategory = () => dispatch => {

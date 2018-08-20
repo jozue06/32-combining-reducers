@@ -20,7 +20,7 @@ router.post('/', (req, res) => {
 
 });
 
-router.delete('/api/category/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
     Category.findById(req.params.id)
         .then(category => category.remove()
             .then(() => res.json({

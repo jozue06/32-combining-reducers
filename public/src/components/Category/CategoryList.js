@@ -21,7 +21,7 @@ const CategoryList = (props) => {
       
       <S.Button category={Category} onClick={() => props.deleteCategory(Category)} >Remove Category</S.Button>
         <ExpenseForm  buttonText="add expense" onComplete={props.addExpense} categoryID={Category}/> 
-        <ExpenseList expenses={props.expenses} id={Category} deleteExpense={props.deleteExpense} /></li>)}
+        <ExpenseList expenses={props.expenses} id={Category._id} deleteExpense={props.deleteExpense} /></li>)}
         </S.Text>
       
     </ul>
