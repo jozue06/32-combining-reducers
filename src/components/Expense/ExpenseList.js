@@ -2,18 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { deleteExpense } from '../../reducers/expense';
+import S from '../../components/styles/styles.js'
+
 
 const ExpenseList = (props) => {
   return (
+    <S.Border>
     <ul>
-      {props.expenses.filter(expense => expense.categoryID === props.id ).map(expense => <li key={expense.id}>Expense:{expense.name} 
+     
+       <S.Text>{props.expenses.filter(expense => expense.categoryID === props.id ).map(expense =><li key={expense.id}>Expense:{expense.name} 
       <br />
       Expense Amount: {expense.amount}
       <br />
-      <button expense={expense} onClick={() => props.deleteExpense(expense)}>Remove Expense</button>
+      <S.Button expense={expense} onClick={() => props.deleteExpense(expense)}>Remove Expense</S.Button>
       
       </li>)}
+      
+    </S.Text>
     </ul>
+    </S.Border>
   );
 };
 

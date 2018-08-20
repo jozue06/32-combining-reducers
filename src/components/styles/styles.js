@@ -9,11 +9,16 @@ const Title = styled.h1`
 `;
 
 const Text = styled.p`
-  font-size: 1.5em;
+  font-size: 1.1em;
   text-align: center;
   color: palevioletred;
   list-style-type: none;
 `;
+
+const Border = styled.div`
+border-color:red;
+border-style: solid;
+`
 
 const Link = styled.a`
 color: palevioletred;  
@@ -38,7 +43,7 @@ const Button = styled.button`
   background: ${(props) => props.primary ? 'palevioletred' : 'white'};
   color: ${(props) => props.primary ? 'white' : 'palevioletred'};
 
-  font-size: 1em;
+  font-size: 0.5em;
   margin: 1em;
   padding: 0.25em 1em;
   border: 2px solid palevioletred;
@@ -52,5 +57,6 @@ export default {
   Wrapper,
   Text,
   Link,
+  Border,
   Ups,
 };
