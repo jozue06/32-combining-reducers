@@ -3,6 +3,8 @@ import defaultState from './defaultState';
 
 // Actions
 export const ADD = 'Expense/ADD';
+export const DELETE = 'Expense/DELETE';
+
 
 // Reducer
 export default function reducer(state = defaultState, action) {
@@ -17,6 +19,14 @@ export default function reducer(state = defaultState, action) {
         ...state,
         expenses: [...state.expenses, payload]
       };
+      case DELETE:
+      // console.log(state.categories)
+      return {
+        ...state,
+        expenses: state.expenses.filter(expense => {
+          console.log('payss', payload)
+          return expense.id !== payload.id})
+      };
 
     default: return state;
   }
@@ -26,6 +36,13 @@ export default function reducer(state = defaultState, action) {
 export function addExpense(expense) {
   return {
     type: ADD,
+    payload: expense
+  }
+}
+
+export function deleteExpense(expense) {
+  return {
+    type: DELETE,
     payload: expense
   }
 }
