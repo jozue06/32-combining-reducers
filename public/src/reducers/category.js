@@ -1,5 +1,4 @@
 import superagent from 'superagent';
-import uuid from 'uuid/v1';
 import defaultState from './defaultState';
 
 // Action type
@@ -16,7 +15,7 @@ export default function reducer(state = defaultState, action) {
 
   switch (type) {
     case ADD:
-      payload.id = uuid(); // this ok or need fresh copy?
+      // payload.id = uuid(); // this ok or need fresh copy?
       return {
         ...state,
         categories: [...state.categories, payload]
@@ -33,7 +32,7 @@ export default function reducer(state = defaultState, action) {
       console.log('action reducer get', state)
       return ({
         ...state,
-       categories: [...state.categories, action.payload]
+       categories: action.payload
       });
       
     default: return state;
@@ -42,12 +41,16 @@ export default function reducer(state = defaultState, action) {
 
 
 // Action Creators
-export function addCategory(category) {
+export const addCategory = (category) => dispatch => {
   console.log('addCategory action', category);
-  return {
+  superagent.post('http://localhost:3300/api/categories', category)
+  .then(res => dispatch({
     type: ADD,
-    payload: category
-  }
+    payload: res.body
+  })
+)
+
+  
 }
 
 export function deleteCategory(category) {

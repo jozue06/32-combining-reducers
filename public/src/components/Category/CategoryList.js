@@ -15,8 +15,8 @@ const CategoryList = (props) => {
   
   return (  
     <ul>
-      <S.Text>{props.categories.map(Category => <li key={Category[0]._id}>
-      name of cate: {Category[0].name} <br /> Total Budget for Category: {Category[0].budget}
+      <S.Text>{props.categories.map(Category => <li key={Category._id}>
+      name of cate: {Category.name} <br /> Total Budget for Category: {Category.budget}
       <br />
       
       <S.Button category={Category} onClick={() => props.deleteCategory(Category)} >Remove Category</S.Button>
