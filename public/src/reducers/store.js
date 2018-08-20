@@ -1,10 +1,21 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware, compose  } from 'redux';
+
+
 import expenseState from './expense';
 import categoryState from './category';
+import thunk from 'redux-thunk';
 
 const rootReducer = combineReducers({
   expenseState,
   categoryState,
 });
 
-export default createStore(rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const middleware = [thunk];
+
+const store = createStore(rootReducer,
+  compose(
+  applyMiddleware(...middleware),
+       window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+      )
+    )
+export default store;

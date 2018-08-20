@@ -30,11 +30,12 @@ export default function reducer(state = defaultState, action) {
       };
 
       case GET:
-      console.log('action reducer get')
-      return {
+      console.log('action reducer get', state)
+      return ({
         ...state,
-       categories: [...state.categories, payload]
-      };
+       categories: [...state.categories, action.payload]
+      });
+      
     default: return state;
   }
 }
@@ -59,11 +60,11 @@ export function deleteCategory(category) {
 export const getCategory = () => dispatch => {
 console.log('calling getCat')
   superagent
-  .get('/api/notes')
+  .get('http://localhost:3300/api/categories')
   .then(res =>
   dispatch({
     type: GET,
-    payload: res.data,
-  })
-)
+    payload: res.body
+  }))
+
 }

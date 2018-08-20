@@ -9,16 +9,19 @@ import { connect } from 'react-redux';
 import { addExpense } from '../../reducers/expense';
 
 const CategoryList = (props) => {
+
   
-  return (
+  console.log('cat list props', props.categories[0])
+  
+  return (  
     <ul>
-      <S.Text>{props.categories.map(Category => <li key={Category.id}>
-      {Category.name} <br /> Total Budget for Category: {Category.budget}
+      <S.Text>{props.categories.map(Category => <li key={Category[0]._id}>
+      name of cate: {Category[0].name} <br /> Total Budget for Category: {Category[0].budget}
       <br />
       
       <S.Button category={Category} onClick={() => props.deleteCategory(Category)} >Remove Category</S.Button>
-        <ExpenseForm  buttonText="add expense" onComplete={props.addExpense} categoryID={Category.id}/> 
-        <ExpenseList expenses={props.expenses} id={Category.id} deleteExpense={props.deleteExpense} /></li>)}
+        <ExpenseForm  buttonText="add expense" onComplete={props.addExpense} categoryID={Category}/> 
+        <ExpenseList expenses={props.expenses} id={Category} deleteExpense={props.deleteExpense} /></li>)}
         </S.Text>
       
     </ul>

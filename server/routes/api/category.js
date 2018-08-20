@@ -5,9 +5,6 @@ const router = express.Router()
 
 router.get('/', (req, res) => {
     Category.find()
-        .sort({
-            timestamp: -1
-        })
         .then(categories => res.json(categories))
 });
 
@@ -23,7 +20,7 @@ router.post('/', (req, res) => {
 
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/api/category/:id', (req, res) => {
     Category.findById(req.params.id)
         .then(category => category.remove()
             .then(() => res.json({
